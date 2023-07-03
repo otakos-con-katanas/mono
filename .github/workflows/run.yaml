@@ -8,9 +8,9 @@ jobs:
     - name: run on VPS
       uses: appleboy/ssh-action@v0.1.10
       with:
-        
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
         script: whoami 
           
