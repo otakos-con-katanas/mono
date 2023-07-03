@@ -9,9 +9,9 @@ jobs:
       uses: appleboy/ssh-action@master
       with:
         
-        host: ${{ secrets.HOST }} 
-        username: ${{ secrets.USERNAME }} 
-        PASSWORD: ${{ secrets.PASSWORD }}
+        host: $secrets.HOST
+        username: $secrets.USERNAME
+        PASSWORD: $secrets.PASSWOR
         script: |
           whoami 
           ls
