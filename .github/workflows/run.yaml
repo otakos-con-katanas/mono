@@ -3,6 +3,18 @@ name: deploy
 jobs:
   deploy:
     name: test
-    runs-on: alpine
+    runs-on: ubuntu-latest
     steps:
-    - run: cat docker-compose.yaml
+    - name: catdockerfile
+      run: cat docker-compose.yaml
+    - name: run on VPS
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST}}
+        username: ${{ secrets.USERNAME}}
+        key: ${{ secrets.KEY }}
+        port: ${{ secrets.SSHPORT }}
+        passphrase: ${{ secrets.PASSPHRASE}}
+        script: |
+          docker compose up
+      
