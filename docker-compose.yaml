@@ -1,0 +1,23 @@
+version: '3'
+services:
+  nginx:
+    image: jwilder/nginx-proxy
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+    restart: always
+    privileged: true
+  front:
+    image: strm/helloworld-http
+    environment:
+      VIRTUAL_HOST: sub.${{ secrets.HOST }}
+    restart: always
+
+  main:
+    build:
+      context: ../landing
+      dockerfile: Dockerfile
+    environment:
+      VIRTUAL_HOST: ${{ secrets.HOST }}

@@ -1,0 +1,8 @@
+on: push
+name: deploy
+jobs:
+  deploy:
+    name: test
+    runs-on: alpine
+    steps:
+      run: cat docker-compose.yaml
