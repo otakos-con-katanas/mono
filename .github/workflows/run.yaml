@@ -7,6 +7,12 @@ jobs:
     steps:
     - name: catdockerfile
       uses: actions/checkout@v2.3.4
+    - name: pwd
+      run: echo pwd
+    - name: ls
+      run: ls
+    - name: env
+      run: printenv
     - name: run on VPS
       uses: appleboy/ssh-action@master
       with:
