@@ -5,4 +5,4 @@ jobs:
     name: test
     runs-on: alpine
     steps:
-      run: cat docker-compose.yaml
+    - run: cat docker-compose.yaml
