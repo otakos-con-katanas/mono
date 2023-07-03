@@ -5,17 +5,13 @@ jobs:
     name: test
     runs-on: ubuntu-latest
     steps:
-    - name: catdockerfile
-      uses: actions/checkout@v2.3.4
-      with:
-        command_line: ls
-    
     - name: run on VPS
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.SSHHOST }}
         username: ${{ secrets.USERNAME }}
         passphrase: ${{ secrets.PASSPHRASE }}
+        target: "/root/compose/monorepo"
         script: |
           cd /root/compose/monorepo
           pwd
