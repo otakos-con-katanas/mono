@@ -8,11 +8,12 @@ jobs:
     - name: run on VPS
       uses: appleboy/ssh-action@master
       with:
-        host: ${{ secrets.SSHHOST }}
+        host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.USERNAME }}
         passphrase: ${{ secrets.PASSPHRASE }}
         script: |
+          ls
           cd /root/compose/monorepo
           pwd
+          ls
           docker compose up
-      
