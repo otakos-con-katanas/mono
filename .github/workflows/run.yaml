@@ -20,5 +20,7 @@ jobs:
         username: ${{ secrets.USERNAME}}
         passphrase: ${{ secrets.PASSPHRASE}}
         script: |
+          cd /root/compose/monorepo
+          pwd
           docker compose up
       
