@@ -6,16 +6,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: run on VPS
-      uses: appleboy/ssh-action@master
+      uses: appleboy/ssh-action@v0.1.10
       with:
         
-        host: $secrets.HOST
-        username: $secrets.USERNAME
-        PASSWORD: $secrets.PASSWOR
-        script: |
-          whoami 
-          ls
-          cd /root/compose/monorepo
-          pwd
-          ls
-          docker compose up
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        script: whoami 
+          
