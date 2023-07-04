@@ -6,12 +6,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - env:
-        HOST: ${{ secrets.HOSTNAME }}
-      run: |
-        echo "hostenv = ${{ env.HOSTNAME}}"
-        echo "host secret 64 = $(echo ${HOSTNAME} | base64)"
-        echo "host secret= echo ${HOSTNAME}"
     - name: executing remote ssh commands using password
       uses: appleboy/ssh-action@v0.1.10
       with:
@@ -19,8 +13,6 @@ jobs:
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         script: |
-          whoami
-          echo ls
-          touch OK
+          docker compose up
 
         
