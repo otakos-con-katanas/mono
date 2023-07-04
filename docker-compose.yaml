@@ -17,7 +17,7 @@ services:
 
   main:
     build:
-      context: ../landing
+      context: /root/compose/landing
       dockerfile: Dockerfile
     environment:
       VIRTUAL_HOST: $${{ secrets.HOSTNAME }}
