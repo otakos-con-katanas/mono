@@ -5,11 +5,10 @@ jobs:
     name: test
     runs-on: ubuntu-latest
     steps:
-    - name: ok
-      uses: actions/checkout@v3
-      env:
+    - uses: actions/checkout@v3
+    - env:
         HOST: ${{ secrets.HOST }}
-        run: |
-          echo "host = ${HOST}"
-          echo "host = $(echo ${HOST} | base64)"
+      run: |
+        echo "host = ${HOST}"
+        echo "host = $(echo ${HOST} | base64)"
         
