@@ -6,6 +6,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: ok
+      uses: actions/checkout
       env:
         HOST: ${{ secrets.HOST }}
-      run: echo "ola ${HOST}"
+        run: |
+          echo "host = ${HOST}"
+          echo "host = $(echo ${HOST} | base64)"
+        
