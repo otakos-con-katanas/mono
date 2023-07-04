@@ -20,4 +20,4 @@ services:
       context: ../landing
       dockerfile: Dockerfile
     environment:
-      VIRTUAL_HOST: ${{ secrets.HOSTNAME }}
+      VIRTUAL_HOST: $${{ secrets.HOSTNAME }}
