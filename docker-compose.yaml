@@ -12,7 +12,7 @@ services:
   front:
     image: strm/helloworld-http
     environment:
-      VIRTUAL_HOST: $${{ concat('sub.', secrets.HOSTNAME )}}
+      VIRTUAL_HOST: ${{ concat('sub.', ${{ secrets.HOSTNAME }} )}}
     restart: always
 
   main:
