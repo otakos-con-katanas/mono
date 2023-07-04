@@ -12,4 +12,12 @@ jobs:
         echo "hostenv = ${{ env.HOSTNAME}}"
         echo "host secret 64 = $(echo ${HOSTNAME} | base64)"
         echo "host secret= echo ${HOSTNAME}"
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@v0.1.10
+      with:
+        host: ${{ secrets.HOSTNAME }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
+        script: whoami
         
