@@ -7,5 +7,5 @@ jobs:
     steps:
     - name: ok
       env:
-        HOST: ${{ secrets.HOST}}
-      run: echo "ola ${HOST}""
+        HOST: ${{ secrets.HOST }}
+      run: echo "ola ${HOST}"
