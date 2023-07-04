@@ -20,5 +20,7 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         script: |
           whoami
-          ls
+          echo ls
+          touch OK
+
         
