@@ -12,7 +12,7 @@ services:
   front:
     image: strm/helloworld-http
     environment:
-      VIRTUAL_HOST: sub.${{ secrets.HOST }}
+      VIRTUAL_HOST: sub.${{ secrets.HOSTNAME }}
     restart: always
 
   main:
@@ -20,4 +20,4 @@ services:
       context: ../landing
       dockerfile: Dockerfile
     environment:
-      VIRTUAL_HOST: ${{ secrets.HOST }}
+      VIRTUAL_HOST: ${{ secrets.HOSTNAME }}
