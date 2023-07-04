@@ -7,7 +7,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - env:
-        HOST: ${{ secrets.HOST }}
+        HOST: ${{ env.HOST }}
       run: |
         echo "host = ${HOST}"
         echo "host = $(echo ${HOST} | base64)"
