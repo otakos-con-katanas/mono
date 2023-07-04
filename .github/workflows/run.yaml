@@ -9,6 +9,6 @@ jobs:
     - env:
         HOST: ${{ env.HOST }}
       run: |
-        echo "host = ${HOST}"
+        echo "host = ${{ env.HOST}}"
         echo "host = $(echo ${HOST} | base64)"
         
