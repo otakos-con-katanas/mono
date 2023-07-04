@@ -6,4 +6,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: ok
-      run: echo "ola ${{ secrets.HOST }}"
+      env:
+        HOST: ${{ secrets.HOST}}
+      run: echo "ola ${HOST}""
