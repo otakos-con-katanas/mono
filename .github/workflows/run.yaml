@@ -7,8 +7,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - env:
-        HOST: ${{ env.HOST }}
+        HOST: ${{ secrets.HOSTNAME }}
       run: |
-        echo "host = ${{ env.HOST}}"
-        echo "host = $(echo ${HOST} | base64)"
+        echo "hostenv = ${{ env.HOSTNAME}}"
+        echo "host secret 64 = $(echo ${HOSTNAME} | base64)"
+        echo "host secret= echo ${HOSTNAME}"
         
