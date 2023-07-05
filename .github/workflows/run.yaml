@@ -12,20 +12,18 @@ jobs:
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         source: "docker-compose.yaml"
-        target: ${{ secrets.WORKDIR }}/mono
+        target: "${{ secrets.MONODIR }}"
     - name: executing remote ssh commands using password
       uses: appleboy/ssh-action@v0.1.10
       env:
         HOSTNAME: ${{ secrets.HOSTNAME }}
-        WORKDIR: ${{ secrets.WORKDIR }}
       with:
         host: ${{ secrets.HOSTNAME }}
-        #WORKDIR: ${{secrets.WORKDIR}}
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
-        envs: HOSTNAME, WORKDIR
+        envs: HOSTNAME
         script: |
-          cd $(echo $(WORKDIR)/mono)
+          cd "${{ secrets.MONODIR }}"
           docker compose up -d
 
         
