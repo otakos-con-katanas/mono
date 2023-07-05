@@ -18,7 +18,7 @@ services:
 
   main:
     build:
-      context: /root/compose/landing
+      context: ../reactTest
       dockerfile: Dockerfile
     environment:
       # VIRTUAL_HOST: $${{ secrets.HOSTNAME }}
