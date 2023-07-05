@@ -20,7 +20,7 @@ jobs:
         WORKDIR: ${{ secrets.WORKDIR }}
       with:
         host: ${{ secrets.HOSTNAME }}
-        WORKDIR: ${{secrets.WORKDIR}}
+        #WORKDIR: ${{secrets.WORKDIR}}
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         envs: HOSTNAME, WORKDIR
