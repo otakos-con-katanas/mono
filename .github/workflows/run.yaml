@@ -17,6 +17,7 @@ jobs:
       uses: appleboy/ssh-action@v0.1.10
       env:
         HOSTNAME: ${{ secrets.HOSTNAME }}
+        HOSTNAME: ${{ secrets.WORKDIR }}
       with:
         host: ${{ secrets.HOSTNAME }}
         WORKDIR: ${{secrets.WORKDIR}}
