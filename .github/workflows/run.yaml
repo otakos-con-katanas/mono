@@ -15,12 +15,14 @@ jobs:
         target: ${{ secrets.WORKDIR }}
     - name: executing remote ssh commands using password
       uses: appleboy/ssh-action@v0.1.10
+      env:
+        HOSTNAME: ${{ secrets.HOSTNAME }}
       with:
         host: ${{ secrets.HOSTNAME }}
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         script: |
           cd ${{ secrets.WORKDIR  }}
-          docker compose up
+          docker compose up -d
 
         

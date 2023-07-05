@@ -12,7 +12,8 @@ services:
   front:
     image: strm/helloworld-http
     environment:
-      VIRTUAL_HOST: $${ concat('sub.', secrets.HOSTNAME )}
+      # VIRTUAL_HOST: $${ concat('sub.', secrets.HOSTNAME )}
+      VIRTUAL_HOST: "sub.${HOSTNAME}"
     restart: always
 
   main:
@@ -20,4 +21,5 @@ services:
       context: /root/compose/landing
       dockerfile: Dockerfile
     environment:
-      VIRTUAL_HOST: $${{ secrets.HOSTNAME }}
+      # VIRTUAL_HOST: $${{ secrets.HOSTNAME }}
+      VIRTUAL_HOST: "${HOSTNAME}"
