@@ -12,7 +12,7 @@ jobs:
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         source: "docker-compose.yaml"
-        target: "${{ secrets.WORKDIR }}/mono"
+        target: join(${{ secrets.WORKDIR }}, "/mono")
     - name: executing remote ssh commands using password
       uses: appleboy/ssh-action@v0.1.10
       env:
@@ -23,7 +23,7 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         envs: HOSTNAME
         script: |
-          cd "${{ secrets.WORKDIR }}/mono"
+          cd join(${{ secrets.WORKDIR }}, "/mono")
           docker compose up -d
 
         
