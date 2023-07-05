@@ -23,7 +23,7 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         envs: HOSTNAME
         script: |
-          cd ${{ secrets.WORKDIR }}/mono
+          cd "${{ secrets.WORKDIR }}/mono"
           docker compose up -d
 
         
