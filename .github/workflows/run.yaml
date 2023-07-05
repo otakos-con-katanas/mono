@@ -19,11 +19,12 @@ jobs:
         HOSTNAME: ${{ secrets.HOSTNAME }}
       with:
         host: ${{ secrets.HOSTNAME }}
+        WORKDIR: ${{secrets.WORKDIR}}
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
-        envs: HOSTNAME
+        envs: HOSTNAME, WORKDIR
         script: |
-          cd "${{ secrets.WORKDIR }}/mono"
+          cd ${WORKDIR}/mono
           docker compose up -d
 
         
