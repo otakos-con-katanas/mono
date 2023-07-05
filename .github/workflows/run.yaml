@@ -13,7 +13,7 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         source: "docker-compose.yaml"
         target: ${{ secrets.MONODIR }}
-    - name: executing remote ssh commands using password
+    - name: executing remote ssh
       uses: appleboy/ssh-action@v0.1.10
       env:
         HOSTNAME: ${{ secrets.HOSTNAME }}
@@ -23,7 +23,7 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         envs: HOSTNAME
         script: |
-          cd ${{ secrets.MONODIR }}
+          cd ${{ secrets.MONODIR  }}
           docker compose up -d
 
         
