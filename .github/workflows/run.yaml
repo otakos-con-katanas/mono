@@ -21,6 +21,7 @@ jobs:
         host: ${{ secrets.HOSTNAME }}
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
+        envs: HOSTNAME
         script: |
           cd ${{ secrets.WORKDIR  }}
           docker compose up -d
